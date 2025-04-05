@@ -10,7 +10,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name("sua-chave.json", scope
 client = gspread.authorize(creds)
 
 # Abre a planilha (coloque o ID da sua planilha aqui)
-sheet = client.open_by_key("1ABcDeFgHIjkLmNoPQrsTUvwxyz12345678").sheet1
+sheet = client.open_by_key("1_kGPoAV8mT_i1wzOvo_FsBgK2yGz8aPpc4Vxv5eNj34").sheet1
 
 @app.route("/resposta")
 def responder():
