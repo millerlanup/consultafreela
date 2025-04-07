@@ -14,12 +14,14 @@ def consultar_dados_profissional():
         return jsonify({"erro": "Parâmetro 'nome' não informado"}), 400
 
     try:
-        # Envia o nome para o Make
+        # Envia o nome para o Webhook do Make
         response = requests.post(MAKE_WEBHOOK_URL, json={"nome": nome})
         resposta_make = response.text
 
-        # Retorna para o assistente
-        return jsonify({"resposta": resposta_make})
+        # Retorna ao assistente da OpenAI
+        return jsonify({
+            "resposta": resposta_make
+        })
 
     except Exception as e:
         return jsonify({"erro": "Erro na consulta", "detalhes": str(e)}), 500
